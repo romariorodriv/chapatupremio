@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickets del Sorteo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="tickets.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-dark bg-danger px-3">
+        <a class="navbar-brand" href="#">Sorteo de <span id="sorteoNombre"></span></a>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Sección de tickets -->
+            <div class="col-md-8">
+                <div id="tickets-container" class="grid-container"></div>
+                <div class="pagination">
+                    <button id="prevPage" class="btn btn-secondary">⬅️ Anterior</button>
+                    <span id="currentPage">1</span>
+                    <button id="nextPage" class="btn btn-secondary">Siguiente ➡️</button>
+                </div>
+            </div>
+
+            <!-- Sección de información del sorteo -->
+              <div id="resumen-compra" class="card" style="padding: 20px; width: 300px;">
+                <h5>Resumen de tu compra</h5>
+                <p>Hola <span id="nombre-usuario"></span></p>
+                <p>Los tickets que has seleccionado son:</p>
+                <table class="table table-sm">
+                  <thead>
+                    <tr>
+                      <th>Número</th>
+                      <th>Valor</th>
+                    </tr>
+                  </thead>
+                  <tbody id="lista-boletos">
+                    <!-- Aquí se agregan los tickets -->
+                  </tbody>
+                </table>
+                <hr>
+                <p><strong>Total a pagar: S/<span id="total-pagar">0</span></strong></p>
+                <button class="btn btn-success" id="confirmarCompra">Confirmar compra</button>
+              </div>
+              
+        </div>
+    </div>
+
+    <script src="tickets.js"></script>
+</body>
+</html>

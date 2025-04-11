@@ -1,0 +1,42 @@
+body {
+    background-color: #222;
+    color: white;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 5px;
+    background: #ddd;
+    padding: 20px;
+    border-radius: 8px;
+}
+.ticket {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.ticket.sold {
+    background: gray;
+    cursor: not-allowed;
+}
+.info-card {
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 8px;
+}
+.pagination {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.ticket.selected {
+    background-color: green;
+    color: white;
+    font-weight: bold;
+}

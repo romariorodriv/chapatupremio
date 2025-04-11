@@ -1,0 +1,54 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+/* Navbar */
+.navbar {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Tarjetas */
+.card {
+  border-radius: 12px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-img-top {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+/* Footer */
+footer {
+  margin-top: 20px;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .row {
+      text-align: center;
+  }
+  
+  .card {
+      margin-bottom: 20px;
+  }
+
+  .navbar-brand {
+      font-size: 18px;
+  }
+
+  #usernameDisplay {
+      font-size: 14px;
+  }
+}

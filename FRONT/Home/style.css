@@ -1,0 +1,511 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black !important;
+}
+/* Sección principal con imagen */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Ajusta según tu necesidad */
+    overflow: hidden;
+}
+
+/* Imagen de fondo */
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(80%); /* Oscurece ligeramente la imagen */
+}
+
+/* Overlay para mejorar la visibilidad del texto */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)); /* Degradado negro-transparente */
+    z-index: 1;
+}
+
+/* Ajusta el contenido dentro de la sección hero */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-family: "Oswald", Arial, sans-serif;
+    z-index: 2; /* Asegura que el texto esté encima del overlay */
+}
+
+
+/* Contenedor de texto y botón */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: "Oswald", Arial, sans-serif; /* Fuente más impactante */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Sombra sutil para mejorar la legibilidad */
+}
+
+/* Título Principal */
+.hero-title {
+    font-size: 3.5rem; /* Ligeramente más grande para más impacto */
+    font-weight: bold;
+    text-transform: uppercase;
+    background:  #FFFFFF; /* Degradado Dorado → Blanco */
+    -webkit-background-clip: text;
+    
+    letter-spacing: 2px; /* Espaciado para mejor lectura */
+}
+
+/* Subtítulo */
+.hero-subtitle {
+    font-size: 1.4rem; /* Ligeramente más grande para mejor lectura */
+    color: #CCCCCC; /* Gris claro para que no compita con el título */
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.5);
+}
+
+
+/* Estilos del botón mejorado */
+.hero-button {
+    background: #D4AF37; /* Dorado intenso */
+    color: #000000; /* Texto en negro */
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 15px 25px;
+    text-decoration: none;
+    border-radius: 50px;
+    border: 3px solid #000000;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.8);
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Efecto hover */
+.hero-button:hover {
+    background: linear-gradient(45deg, #D4AF37, #FF0000); /* Degradado Dorado → Rojo */
+    color: #FFFFFF; /* Texto en blanco */
+    border-color: #FF0000;
+    box-shadow: 5px 5px 10px rgba(255, 0, 0, 0.6);
+    transform: scale(1.1);
+}
+
+/* Sección de cuenta regresiva */
+.countdown-section {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+
+
+/* Contenedor del contador */
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+
+/* Contenedor de la Barra de Progreso */
+.progress-bar-container {
+    width: 90%;
+    max-width: 800px;
+    height: 15px;
+    background: #000000; /* Fondo negro */
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+    border: 2px solid #A67C00; /* Borde dorado oscuro */
+    box-shadow: 0px 0px 15px rgba(166, 124, 0, 0.5); /* Sombra dorada oscura */
+}
+
+/* Barra de Progreso */
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: #F5C85B; /* Dorado más claro */
+    transition: width 0.5s ease-in-out;
+    box-shadow: 0px 0px 10px rgba(245, 200, 91, 0.6); /* Brillo dorado */
+}
+
+/* Efecto de animación para dar sensación de movimiento */
+@keyframes progressAnimation {
+    0% { background-position: 0 0; }
+    100% { background-position: 100px 0; }
+}
+
+.progress-bar {
+    animation: progressAnimation 2s linear infinite;
+}
+
+/* Contenedor de las Cajas de Tiempo */
+.countdown-box {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background: #F5C85B; /* Fondo dorado más claro */
+    color: #000000; /* Texto negro */
+    text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5);
+    border: 2px solid #A67C00; /* Borde dorado más oscuro */
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Efecto Hover en las Cajas de Tiempo */
+.countdown-box:hover {
+    background: #FFD97D; /* Dorado aún más claro en hover */
+    transform: scale(1.05);
+    box-shadow: 0px 0px 12px rgba(255, 223, 186, 0.7);
+}
+
+
+/* Título del Contador */
+.countdown-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #FFFFFF; /* Texto blanco */
+    text-shadow: 0px 0px 10px rgba(212, 175, 55, 0.7); /* Brillo dorado */
+}
+
+/*Empieza la seccion 2*/
+/* Contenedor de la Tarjeta */
+/* Contenedor de la Tarjeta */
+.card {
+    background: #111111; /* Fondo negro elegante */
+    border-radius: 10px;
+    /* border: 2px solid #D4AF37; Borde dorado */
+    box-shadow: 0px 4px 15px rgba(212, 175, 55, 0.3);
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    color: #FFFFFF;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Efecto Hover en la Tarjeta */
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 20px rgba(212, 175, 55, 0.5);
+}
+
+/* Imagen del Vehículo */
+.card-img-top {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover;
+    border-bottom: 2px solid #D4AF37; /* Línea dorada debajo de la imagen */
+}
+
+/* Título del Vehículo */
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white ; /* Dorado */
+    margin: 10px 0;
+}
+
+/* Subtítulo */
+.card-text {
+    font-size: 1rem;
+    color: #CCCCCC; /* Blanco grisáceo para un look elegante */
+    margin-bottom: 10px;
+}
+
+/* Contenedor de la Barra de Progreso */
+.progress {
+    height: 12px;
+    background: #222222; /* Fondo negro mate */
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #D4AF37;
+}
+
+
+/* Botón de Compra */
+.btn-primary {
+    background: #D4AF37; /* Dorado sólido */
+    color: #000000; /* Texto en negro */
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 50px;
+    border: 2px solid #D4AF37;
+    box-shadow: 3px 3px 10px rgba(212, 175, 55, 0.6);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Efecto Hover en el Botón */
+.btn-primary:hover {
+    background: #F5C85B; /* Dorado más claro */
+    color: #000000;
+    transform: scale(1.1);
+}
+/*fin seccion2*/
+
+
+/* Asegurar que el contenedor principal no tenga restricciones */
+.container-fluid {
+    width: 100%;
+    padding: 0;
+}
+
+/* Imagen responsiva */
+.responsive-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Tamaño de imagen dentro de las tarjetas */
+.card-img-top {
+    width: auto;
+    height: auto;
+}
+/* Estilos generales */
+.navbar {
+    background-color: #000000;
+    padding: 15px 0;
+}
+
+/* Logo personalizado */
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.logo-highlight {
+    color: #ff6600; /* Naranja */
+}
+
+/* Estilos de navegación */
+.navbar-nav .nav-link {
+    color: white;
+    font-size: 1rem;
+    margin-right: 15px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ff6600;
+}
+
+/* Icono de carrito */
+.cart-icon {
+    font-size: 1.5rem;
+    color: white;
+    margin-left: 15px;
+    position: relative;
+}
+
+/* Indicador de número de artículos en el carrito */
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #ff6600;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 3px 7px;
+}
+#how-it-works-section {
+    background-color: black !important;
+    width: 100vw !important;
+    min-width: 100% !important;
+    display: block !important;
+    padding: 50px 0 !important;
+    margin: 0 !important;
+}
+/* Contenedor interno */
+.how-it-works-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Tarjetas de la sección */
+.how-it-works-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Efecto hover */
+.how-it-works-card:hover {
+    transform: scale(1.05);
+}
+
+/* Iconos */
+.icon {
+    font-size: 2rem;
+    color: #F5C85B;
+    margin-bottom: 10px;
+}
+
+/* Botón */
+.btn-light {
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+
+
+/* Estilos del footer */
+.footer {
+    background-color: #1a1a1a;
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* Logo */
+.footer-logo h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo-highlight {
+    color: gold;
+}
+
+/* Redes sociales */
+.social-icons a {
+    color: white;
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.social-icons a:hover {
+    color: #ff6600;
+}
+
+/* Enlaces */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.footer-links li {
+    margin-bottom: 5px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: #ff6600;
+}
+
+/* Descarga de apps */
+.app-download img {
+    width: 140px;
+    margin: 10px;
+}
+
+/* Métodos de pago */
+.payment-icons img {
+    width: 50px;
+    margin: 5px;
+}
+
+/* Políticas */
+.footer-policies {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer-policies li {
+    margin: 0 10px;
+}
+
+.footer-policies a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-policies a:hover {
+    color: #ff6600;
+}
+
+
+
+
+
+
+
+/* Sección de Reseñas */
+.reviews-section {
+    background-color: white;
+    padding: 50px 0;
+}
+
+.stars {
+    font-size: 1.2rem;
+    color: gold;
+}
+
+/* Estilo de Tarjetas */
+.review-card {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.review-card:hover {
+    transform: scale(1.05);
+}
+
+.review-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    color: white;
+}
+
+
+
+.card-text-seccion-2{
+    font-size: 0.9rem;
+    color: black;
+}

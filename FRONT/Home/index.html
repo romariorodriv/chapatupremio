@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+
+
+</head>
+<header class="navbar navbar-expand-lg navbar-dark  px-4">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+
+        <!-- Menú de navegación -->
+        <ul class="navbar-nav d-flex flex-row">
+            <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Cañas sorteadas</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Como Participar</a></li>
+
+        </ul>
+
+        <!-- Logo en el centro -->
+        <div class="navbar-brand text-center">
+            <span class="logo-text"> <strong>Chapa </strong><span class="logo-highlight">Tú</span> Fierro</span>
+        </div>
+
+        <!-- Sección de login y carrito -->
+        <div class="d-flex align-items-center">
+
+
+
+            <a href="../Register/register.html" class="nav-link text-white">Registrate</a>
+            <a href="../Login/login.html" class="nav-link text-white">Inicio de session</a>
+        </div>
+
+    </div>
+</header>
+
+<body>
+    <div class="hero-section">
+        <img src="./pexels-pixabay-164634.jpg" alt="Responsive Image" class="hero-image">
+        <div class="hero-content">
+            <h1 class="hero-title">¡ÚNETE A NUESTRA COMUNIDAD!</h1>
+            <p class="hero-subtitle">Accede a premios y beneficios exclusivos</p>
+            <a href="#" class="hero-button">¡QUIERO MI CAÑA!</a>
+        </div>
+    </div>
+
+
+
+    <!-- Cards -->
+    <div class="container mt-5">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-md-6">
+                <div class="card" data-sorteo-id="1" data-total="100" data-comprados="75">
+                    <img src="../img/15be9838-ea91-4eaf-8e3a-b09d33d4fbbb.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Gana esta Ford F-250 GNV</h5>
+                        <p class="card-text">¿Cuántos tickets faltan?</p>
+                        <p id="contador-boletos-1" class="text-center text-light small">0 de 100 vendidos</p>
+                        <div class="progress mb-4" role="progressbar" aria-label="Boletos vendidos" aria-valuenow="75"
+                            aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar" id="progreso-barra-1" style="width: 0%"></div>
+                        </div>
+                        <a href="#" class="btn btn-primary">S/60.00</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <img src="../img/b4b27f23-1203-41e6-bd6a-c3d1eeb55523.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Gana este GTO 1965</h5>
+                        <p class="card-text">¿Cuantos tikets faltan?</p>
+                        <div class="progress mb-4" role="progressbar" aria-label="Basic example" aria-valuenow="75"
+                            aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar w-75"></div>
+                        </div>
+                        <a href="#" class="btn btn-primary">S/20.00</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Como funciona  -->
+    <div id="how-it-works-section">
+        <div class="how-it-works-container">
+            <h2 class="fw-bold text-white">¿Como Participar?</h2>
+            <p class="text-white">Te dejamos una guia paso a paso</p>
+
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="icon"><i class="fas fa-gift"></i></div>
+                    <h5 class="card-title">Registrate</h5>
+                    <p class="card-text">
+                        Lo primero que debes hacer es registrate
+                    </p>
+
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="icon"><i class="fas fa-ticket-alt"></i></div>
+                    <h5 class="card-title">Selecciona</h5>
+                    <p class="card-text">
+                        El sistema te redirigira a una pantalla para seleccionar tu ticket ganador
+                    </p>
+                </div>
+
+
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="icon"><i class="fas fa-tv"></i></div>
+                    <h5 class="card-title">Compra</h5>
+                    <p class="card-text">
+                        Luego realizas la compra por los diferentes medios de pago tambien tenenmos, yape y plin
+                    </p>
+
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+
+
+                    <div class="icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <h5 class="card-title">Suerte</h5>
+                    <p class="card-text">
+                        Eso es todo, mucha suerte
+                    </p>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="./function.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+<footer class="footer bg-dark text-white py-4">
+    <div class="container">
+        <div class="row">
+            <!-- Logo y datos legales -->
+            <div class="col-md-4">
+                <div class="footer-logo">
+                    <h4><span class="logo-highlight">Chapa</span>tu caña</h4>
+                </div>
+                <p>© Copyright Chapa tu caña 2025</p>
+                <p>Registered Company Number: 123123123</p>
+                <p>Perú, Lima</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- Enlaces -->
+            <div class="col-md-4">
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Winners</a></li>
+                    <li><a href="#">FAQ</a></li>
+
+                </ul>
+
+            </div>
+
+            <!-- Descarga de apps -->
+            <div class="col-md-4 text-center">
+                <div class="app-download">
+                    <a href="#"><img
+                            src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                            alt="App Store"></a>
+                    <a href="#"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Get_it_on_Google_play.svg/2560px-Get_it_on_Google_play.svg.png"
+                            alt="Google Play"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Métodos de pago -->
+        <div class="row mt-4">
+            <div class="col-md-12 text-center">
+                <div class="payment-icons">
+
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="Mastercard">
+                </div>
+            </div>
+        </div>
+
+        <!-- Políticas legales -->
+        <div class="row mt-3">
+            <div class="col-md-12 text-center">
+                <ul class="footer-policies">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Acceptable use policy</a></li>
+                    <li><a href="#">Cookie policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</html>
