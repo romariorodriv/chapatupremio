@@ -9,7 +9,7 @@ function openRegisterPage() {
 
 async function actualizarProgresoSorteos() {
     try {
-        const response = await fetch("http://localhost:5000/api/sorteos/progreso");
+        const response = await fetch("https://api.meteleconfe.com/api/sorteos/progreso");
         const progreso = await response.json(); // [{ sorteo_id, total, vendidos }]
 
         progreso.forEach((item) => {

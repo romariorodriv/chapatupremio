@@ -10,9 +10,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         window.location.href = "dashboard.html";
         return;
     }
-
+   
     try {
-        const response = await fetch(`http://localhost:5000/api/sorteos/boletos/${sorteoId}`);
+        const response = await fetch(`https://api.meteleconfe.com/api/sorteos/boletos/${sorteoId}`);
 
         if (!response.ok) {
             throw new Error("Error al obtener los boletos");

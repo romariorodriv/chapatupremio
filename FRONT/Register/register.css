@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: Arial, sans-serif;
     background-color: #1d2530
 }
@@ -24,7 +24,7 @@ body {
     height: 20px;
     border-radius: 8px;
     background-color: gold;
-    /* margin: 10px; */
+
     height: 40px;
     font-size: 20px;
     font-weight: bold;
@@ -49,4 +49,134 @@ body {
     font-size: 30px;
     display: flex
 ;
+} */
+
+
+:root {
+    --primary-blue: #000;
+    --accent-orange: #ffa700;
+    --font-title: 'Titillium Web', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+    --light-bg: #ffffff;
+  }
+  
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    background-color: var(--primary-blue);
+  }
+  
+  .registro-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: var(--primary-blue);
+  }
+  
+  .registro-card {
+    background-color: var(--light-bg);
+    border-radius: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    display: flex;
+    overflow: hidden;
+    max-width: 500px;
+    width: 100%;
+    flex-direction: row;
+  }
+  
+  .form-section {
+    flex: 1;
+    padding: 3rem 2rem;
+  }
+  
+  .titulo {
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitulo {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+  
+  .form-control {
+    border-radius: 12px;
+    height: 45px;
+    padding-left: 1rem;
+    font-size: 0.95rem;
+  }
+  
+  .btn-orange {
+    background-color: var(--accent-orange);
+    color: black;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    border: none;
+    transition: background 0.3s ease;
+  }
+  
+  .btn-orange:hover {
+    background-color: #ffc74d;
+  }
+  
+  .texto-login {
+    font-size: 0.9rem;
+    color: #444;
+  }
+  
+  .texto-login a {
+    color: var(--primary-blue);
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .imagen-section {
+    flex: 1;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .imagen-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .btn-orange {
+    background-color: var(--accent-orange);
+    color: #000;
+    font-weight: 700;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    margin-top: 1rem;
+  }
+  /* Estilo para el botón cuando está deshabilitado */
+button:disabled {
+  background-color: #666; /* Color de fondo gris */
+  color: #000; /* Color del texto */
+  cursor: not-allowed; /* Cursor de no permitido */
+  opacity: 0.7; /* Opacidad para dar un efecto visual */
+  border: 1px solid #aaa; /* Borde más claro */
 }
+  @media (max-width: 768px) {
+    .registro-card {
+      flex-direction: row;
+      border-radius: 20px;
+    }
+  
+    .imagen-section {
+      height: 250px;
+    }
+  
+    .form-section {
+      padding: 2rem 1.5rem;
+    }
+  }
+  

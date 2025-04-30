@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("usernameTitle").innerText = username;
   
     try {
-      const res = await fetch(`http://localhost:5000/api/historial/${usuarioId}`);
+      const res = await fetch(`https://api.meteleconfe.com/api/historial/${usuarioId}`);
       const data = await res.json();
   
       const tbody = document.querySelector("tbody");
