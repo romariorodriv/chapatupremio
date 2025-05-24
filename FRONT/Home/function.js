@@ -1,36 +1,39 @@
-function openRegisterPage() {
-    document.getElementById('registerSection').style.display = 'block';
-    window.scrollTo({ top: document.getElementById('registerSection').offsetTop, behavior: 'smooth' });
-}
-
-
-
-
-
-async function actualizarProgresoSorteos() {
+async function cargarSorteosHome() {
     try {
-        const response = await fetch("https://api.meteleconfe.com/api/sorteos/progreso");
-        const progreso = await response.json(); // [{ sorteo_id, total, vendidos }]
+        const response = await fetch("https://api.meteleconfe.com/api/sorteos");
+        const sorteos = await response.json();
+        console.log('Sorteos recibidos:', sorteos);
+        const contenedor = document.getElementById('sorteos-lista-home'); // Usa el id de tu contenedor
 
-        progreso.forEach((item) => {
-            const porcentaje = (item.vendidos / item.total) * 100;
-            const barra = document.getElementById(`progreso-barra-${item.sorteo_id}`);
-            const texto = document.getElementById(`contador-boletos-${item.sorteo_id}`);
+        contenedor.innerHTML = ''; // Limpia el contenido anterior
 
-            if (barra) barra.style.width = `${porcentaje}%`;
-            if (texto) texto.innerText = `${item.vendidos} de ${item.total} vendidos`;
+        sorteos.forEach((sorteo) => {
+            const div = document.createElement('div');
+            div.className = 'card-sorteo m-2';
+            div.innerHTML = `
+                <div class="badge-time">CIERRA: ${sorteo.fecha_sorteo}</div>
+                <img src="${sorteo.imagen_url || '../img/default.png'}" class="img-fluid mb-3 img-sorteo-fija" alt="${sorteo.nombre}">
+                <div class="progress-container">
+                  <div class="progress-bar" id="progreso-barra-${sorteo.id}" style="width:0%"></div>
+                </div>
+                <p id="contador-boletos-${sorteo.id}" style="font-size: 0.9rem; opacity: 0.7;"></p>
+                <h5>${sorteo.nombre}</h5>
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                  <div class="price">S/2.50</div>
+                  <button class="btn-round">+</button>
+                </div>
+            `;
+            contenedor.appendChild(div);
         });
+
+        // Actualiza el progreso de los sorteos después de cargarlos
+        actualizarProgresoSorteos();
     } catch (error) {
-        console.error("Error al cargar progreso de sorteos:", error);
+        console.error("Error al cargar sorteos:", error);
     }
 }
 
-
-
-
-
-// 🧠 Ejecutar una vez que cargue la página
+// Ejecutar ambas funciones al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
-    actualizarProgresoSorteos();
- 
+    cargarSorteosHome();
 });

@@ -147,6 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
         //localStorage.setItem('username', data.username);
         //window.location.href = data.redirectUrl;
         // Oculta el formulario de registro y muestra el de login
+
         form.style.display = 'none';
         loginForm.style.display = 'block';
         // Muestra mensaje de éxito
@@ -178,6 +179,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (response.ok) {
         localStorage.setItem("username", data.username);
         localStorage.setItem("usuario_id", data.usuario_id); // Guarda el ID del usuario logueado
+        if (data.token) {
+          localStorage.setItem("token", data.token); // Guarda el token JWT
+        }
         window.location.href = data.redirectUrl;
       } else {
         alert("Error: " + data.message);

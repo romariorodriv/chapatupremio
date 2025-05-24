@@ -1,15 +1,33 @@
 :root {
   --primary-blue: #000;
   --accent-orange: #ffa700;
+  
   --font-title: 'Titillium Web', sans-serif;
   --font-body: 'Roboto', sans-serif;
   --light-bg: #ffffff;
+  
 }
 body {
   font-family: Arial, sans-serif;
   background-color:var(--primary-blue) !important;
 }
-
+/* Agrega esto a tu style.css */
+.img-sorteo-fija {
+  width: 100%;
+  max-width: 250px;      /* Ajusta según tu diseño */
+  height: auto;
+  object-fit: contain;   /* Muestra toda la imagen sin recortar */
+  display: block;
+  margin: 0 auto;
+  background: #fff;      /* Opcional: fondo blanco para PNGs */
+  aspect-ratio: 1/1;     /* Opcional: fuerza cuadrado, quítalo si no quieres esto */
+}
+.card {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
 /* Navbar */
 .navbar {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -49,10 +67,9 @@ body {
   background-color: #ffffff;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
-
   border-radius: 30px;
-    margin: 10px;
-    height: 90%;
+  margin: 10px;
+  height: 90%;
 
 }
 /* Mostrar la barra lateral */
@@ -115,6 +132,17 @@ body {
   font-weight: bold;
   text-align: left;
 }
+.title-logo{
+  font-weight: bold;
+  font-family: var(--font-title);
+  text-decoration: none;
+  color: var(--primary-blue);
+}
+.button-user{
+
+  color: black;
+
+}
 /* Responsividad */
 @media (max-width: 768px) {
   .row {
@@ -133,29 +161,29 @@ body {
       font-size: 14px;
   }
    /* Ocultar el menú lateral en pantallas pequeñas */
-   .sidebar {
+  .sidebar {
     transform: translateX(-100%);
-  }
+  } 
 
   .sidebar.show {
     transform: translateX(0);
-  }
+  } 
 
 
 }
 /* Ocultar barra lateral en móviles */
-@media (max-width: 768px) {
-  .sidebar {
+/* @media (max-width: 768px) {
+   .sidebar {
       display: none;
-  }
-}
+  } 
+} */
 
 /* Mostrar barra lateral en escritorio */
-@media (min-width: 768px) {
-  .sidebar {
+/* @media (min-width: 768px) {
+   .sidebar {
       display: block;
-  }
-}
+  } 
+} */
 
 /* Barra superior (móviles) */
 .navbar {

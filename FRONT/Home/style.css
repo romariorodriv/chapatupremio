@@ -221,7 +221,14 @@ header .navbar-brand {
   text-align: center;
 } */
 
-
+.img-sorteo-fija {
+  width: 220px;      /* Ajusta el tamaño según tu diseño */
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px; /* Opcional: bordes redondeados */
+  display: block;
+  margin: 0 auto;
+}
 
   .footer-custom {
     background-color: #0d0f1a;

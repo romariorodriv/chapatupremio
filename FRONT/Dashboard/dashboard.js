@@ -1,49 +1,63 @@
+function validarSesion() {
+  if (!localStorage.getItem('username')) {
+    localStorage.clear();
+    window.location.replace("../Home/index.html");
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+
+  validarSesion();
+
+  // Mostrar el nombre de usuario en el dashboard
   const username = localStorage.getItem('username') || 'Invitado';
   document.getElementById('usernameDisplay').innerText = username;
 
-
-  if (username) {
-      document.getElementById("usernameDisplay").innerText = username;
-  }
-
-  document.getElementById("cerrarSesion").addEventListener("click", () => {
+  // Evento cerrar sesión
+  const cerrarSesionBtn = document.getElementById("cerrarSesion");
+  if (cerrarSesionBtn) {
+    cerrarSesionBtn.addEventListener("click", () => {
       localStorage.clear();
-      window.location.href = "../index.html";
-  });
-});
-
-const ctx1 = document.getElementById('segmentChart').getContext('2d');
-new Chart(ctx1, {
-  type: 'line',
-  data: {
-    labels: ['Oct', 'Nov', 'Dic'],
-    datasets: [
-      { label: 'Segment A', borderColor: 'blue', data: [1000, 1100, 1250] },
-      { label: 'Segment B', borderColor: 'yellow', data: [950, 1050, 1230] }
-    ]
+      window.location.href = "../Home/index.html";
+    });
   }
+  // Llama a cargar sorteos
+  cargarSorteos();
 });
 
-const ctx2 = document.getElementById('ticketChart').getContext('2d');
-new Chart(ctx2, {
-  type: 'bar',
-  data: {
-    labels: ['Ene', 'Feb', 'Mar'],
-    datasets: [
-      { label: 'Tickets Vendidos', backgroundColor: 'lightblue', data: [1500, 1200, 1800] },
-      { label: 'Objetivo', backgroundColor: 'red', data: [1400, 1300, 1600] }
-    ]
+
+
+async function cargarSorteos() {
+  try {
+    const response = await fetch('https://api.meteleconfe.com/api/sorteos');
+    const sorteos = await response.json();
+    console.log('Sorteos recibidos:', sorteos);
+    const contenedor = document.getElementById('lista-sorteos');
+    contenedor.innerHTML = '';
+    sorteos.forEach(sorteo => {
+      const div = document.createElement('div');
+      div.className = 'col-md-4 col-sm-6 mb-4';
+      div.innerHTML = `
+        <div class="card shadow">
+          <img src="${sorteo.imagen_url || '../img/default.png'}" class="card-img-top img-sorteo-fija" alt="${sorteo.nombre}">
+          <div class="card-body text-center">
+            <h5 class="card-title">${sorteo.nombre}</h5>
+            <p class="card-text">${sorteo.descripcion || ''}</p>
+            <a href="../tickets/tickets.html?sorteo=${sorteo.id}" class="btn btn-dashboard-properties">Comprar boleto</a>
+          </div>
+        </div>
+      `;
+      contenedor.appendChild(div);
+    });
+  } catch (error) {
+    console.error('Error al cargar sorteos:', error);
   }
-});
+}
 
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const toggleSidebar = document.getElementById("toggleSidebar");
-  const sidebar = document.getElementById("sidebarMenu");
-
-  toggleSidebar.addEventListener("click", () => {
-      sidebar.classList.toggle("d-block");
-  });
+// Detecta si el usuario vuelve con el botón "atrás" o "adelante" y limpia la sesión
+window.addEventListener('pageshow', function(event) {
+  if (event.persisted || !localStorage.getItem('username')) {
+    localStorage.clear();
+    window.location.replace("../Home/index.html");
+  }
 });

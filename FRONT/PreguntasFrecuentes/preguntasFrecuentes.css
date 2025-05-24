@@ -1,0 +1,167 @@
+:root {
+  --primary-blue: #000;
+  --accent-orange: #ffa700;
+  --light-bg: #ffffff;
+  --font-title: 'Titillium Web', sans-serif;
+  --font-body: 'Roboto', sans-serif;
+  --card-bg: #1e003c;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--light-bg);
+  color: #000;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: var(--primary-blue);
+  color: #fff;
+  padding: 1rem 0;
+}
+
+.navbar-header {
+  flex-direction: row !important;
+}
+
+.navbar-brand {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  color: #fff !important;
+}
+
+.login-btn {
+  background: var(--accent-orange);
+  color: #000 !important;
+  font-weight: bold;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+}
+
+.nav-link.active, .nav-link:focus, .nav-link:hover {
+  background: var(--accent-orange);
+  color: #000 !important;
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+
+.faq-main {
+  flex: 1 0 auto;
+  width: 100%;
+  background: var(--primary-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sorteos-section {
+  padding: 3rem 1rem;
+  background-color: var(--primary-blue);
+  color: var(--light-bg);
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.faq-container {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sorteos-section h2 {
+  font-family: var(--font-title);
+  color: var(--accent-orange);
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.accordion {
+  width: 100%;
+}
+
+.card-sorteo {
+  background-color: var(--light-bg);
+  color: var(--card-bg);
+  border: 1px solid #4a1d8c;
+  border-radius: 15px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+}
+
+.accordion-button {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  background-color: var(--light-bg);
+  border-radius: 15px 15px 0 0;
+  transition: background 0.2s;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--accent-orange);
+  color: #000;
+}
+
+.accordion-body {
+  color: var(--card-bg);
+  background: #fff;
+  border-radius: 0 0 15px 15px;
+  font-size: 1rem;
+}
+
+.footer-custom {
+  background-color: var(--primary-blue);
+  color: #fff;
+  font-size: 1rem;
+  margin-top: 0;
+  padding: 1rem 0;
+  flex-shrink: 0;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .faq-container {
+    max-width: 95vw;
+  }
+  .sorteos-section {
+    padding: 2rem 0.5rem;
+  }
+  .sorteos-section h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .faq-container {
+    padding: 0 0.2rem;
+  }
+  .accordion-button {
+    font-size: 1rem;
+    padding: 0.7rem 1rem;
+  }
+  .navbar-brand img {
+    height: 32px;
+  }
+  .footer-custom {
+    font-size: 0.9rem;
+    padding: 0.7rem 0;
+  }
+  .sorteos-section {
+    padding: 1.2rem 0.1rem;
+    min-height: 70vh;
+  }
+}
