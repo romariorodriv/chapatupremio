@@ -9,24 +9,24 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-dark bg-danger px-3">
-        <a class="navbar-brand" href="#">Sorteo de <span id="sorteoNombre"></span></a>
+    <nav class="navbar navbar-dark  px-3 header-tickets d-flex justify-content-between">
+        <a class="navbar-brand" href="#">meteleconfe<span id="sorteoNombre"></span></a>
     </nav>
 
     <div class="container mt-4">
         <div class="row">
             <!-- Sección de tickets -->
-            <div class="col-md-8">
-                <div id="tickets-container" class="grid-container"></div>
-                <div class="pagination">
-                    <button id="prevPage" class="btn btn-secondary">⬅️ Anterior</button>
-                    <span id="currentPage">1</span>
-                    <button id="nextPage" class="btn btn-secondary">Siguiente ➡️</button>
-                </div>
-            </div>
+            <div class="col-md-8 col-sm-12 mb-4">
+              <div id="tickets-container" class="grid-container"></div>
+              <div class="pagination d-flex justify-content-between align-items-center mt-3">
+                  <button id="prevPage" class="btn btn-secondary">⬅️ Anterior</button>
+                  <span id="currentPage">1</span>
+                  <button id="nextPage" class="btn btn-secondary">Siguiente ➡️</button>
+              </div>
+          </div>
 
             <!-- Sección de información del sorteo -->
-              <div id="resumen-compra" class="card" style="padding: 20px; width: 300px;">
+            <div id="resumen-compra" class="card col-md-4 col-sm-12 p-3">
                 <h5>Resumen de tu compra</h5>
                 <p>Hola <span id="nombre-usuario"></span></p>
                 <p>Los tickets que has seleccionado son:</p>

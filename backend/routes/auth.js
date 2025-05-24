@@ -10,9 +10,13 @@ const pool = require('../config/db');
 // Crea un nuevo enrutador de Express
 const router = express.Router();
 
+// ...existing code...
+const jwt = require('jsonwebtoken'); 
+
+
 // Ruta para registrar un nuevo usuario
 router.post('/register', async (req, res) => {
-    const { username, email, password } = req.body; // Obtiene los datos del cuerpo de la solicitud
+    const { username, email, password , role} = req.body; // Obtiene los datos del cuerpo de la solicitud
     try {
         // Encripta la contraseña del usuario
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -47,7 +51,12 @@ router.post('/login', async (req, res) => {
             // Si las contraseñas no coinciden, responde con un mensaje de error
             return res.status(401).json({ message: 'Contraseña incorrecta' });
         }
-
+      // Genera el token JWT con el rol
+        const token = jwt.sign(
+            { id: user.id, username: user.username, role: user.role },
+            'TU_SECRETO_SUPERSEGURO', // Usa variable de entorno en producción
+            { expiresIn: '1h' }
+        );
         // Si las contraseñas coinciden, responde con un mensaje de éxito y una URL de redirección
         res.status(200).json({
             message: 'Login exitoso', 

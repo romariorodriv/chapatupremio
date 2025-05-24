@@ -15,6 +15,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/sorteos', sorteosRoutes); 
 app.use('/api/compras', comprasRoutes);
 app.use('/api/historial', historialRoutes);
+app.use('/api/admin', require('./routes/admin'));
+
 app.use(express.static(path.join(__dirname, '../FRONT')));
 
 

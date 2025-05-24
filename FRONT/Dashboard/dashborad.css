@@ -1,6 +1,13 @@
+:root {
+  --primary-blue: #000;
+  --accent-orange: #ffa700;
+  --font-title: 'Titillium Web', sans-serif;
+  --font-body: 'Roboto', sans-serif;
+  --light-bg: #ffffff;
+}
 body {
   font-family: Arial, sans-serif;
-  background-color: #f8f9fa;
+  background-color:var(--primary-blue) !important;
 }
 
 /* Navbar */
@@ -11,6 +18,7 @@ body {
 /* Tarjetas */
 .card {
   border-radius: 12px;
+  border-color: black;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -29,11 +37,84 @@ body {
   padding: 20px;
 }
 
-/* Footer */
-footer {
-  margin-top: 20px;
+/* Sidebar (Menú lateral) */
+.sidebar {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 1rem;
+  z-index: 1000;
+  width: 250px;
+  background-color: #ffffff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+
+  border-radius: 30px;
+    margin: 10px;
+    height: 90%;
+
+}
+/* Mostrar la barra lateral */
+.sidebar.show {
+  left: 0; /* Mueve la barra lateral a la vista */
+}
+.user-barra-lateral{
+  color: var(--primary-blue);
+  font-weight: bold;
+  display: flex;
+  place-content: center;
+  text-decoration: none;
+  pointer-events: none;
+  font-size: 25px;
 }
 
+.items-barra-lateral:hover {
+  background-color: var(--accent-orange); /* Usa el color definido en tu variable */
+  color: #fff; /* Cambia el color del texto */
+  transition: background-color 0.3s ease; /* Transición suave */
+}
+.sidebar .nav-link {
+  font-size: 1rem;
+  color: #333;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar .nav-link.active {
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 0.25rem;
+}
+
+.sidebar .material-symbols-outlined {
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.navbar2 {
+  margin: 20px;
+  max-width: 500px;
+  justify-self: center;
+  border-radius: 30px;
+}
+.navbar1{
+  display: flex;
+  background-color: var(--accent-orange);
+  color: var(--primary-blue);
+}
+.navbar1 .navbar-brand{
+  color: var(--primary-blue);
+}
+.btn-dashboard-properties{
+  background-color: var(--accent-orange);
+  color: black;
+}
+.card-text ,.card-title{
+  font-weight: bold;
+  text-align: left;
+}
 /* Responsividad */
 @media (max-width: 768px) {
   .row {
@@ -50,5 +131,40 @@ footer {
 
   #usernameDisplay {
       font-size: 14px;
+  }
+   /* Ocultar el menú lateral en pantallas pequeñas */
+   .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.show {
+    transform: translateX(0);
+  }
+
+
+}
+/* Ocultar barra lateral en móviles */
+@media (max-width: 768px) {
+  .sidebar {
+      display: none;
+  }
+}
+
+/* Mostrar barra lateral en escritorio */
+@media (min-width: 768px) {
+  .sidebar {
+      display: block;
+  }
+}
+
+/* Barra superior (móviles) */
+.navbar {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Ocultar barra superior en escritorio */
+@media (min-width: 768px) {
+  .navbar {
+      display: none;
   }
 }

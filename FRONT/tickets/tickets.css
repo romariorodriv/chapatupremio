@@ -1,22 +1,45 @@
 body {
-    background-color: #222;
+    background-color: black;
     color: white;
 }
+:root {
+    --primary-blue: #000;
+    --accent-orange: #ffa700;
+    --font-title: 'Titillium Web', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+    --light-bg: #ffffff;
+  }
+/* Contenedor de tickets */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    gap: 5px;
-    background: #ddd;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Ajuste automático */
+    gap: 10px;
     padding: 20px;
     border-radius: 8px;
 }
+
+/* Resumen de compra */
+#resumen-compra {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Botones de paginación */
+.pagination {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
 .ticket {
     width: 40px;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: white;
+    /* background: white; */
     border-radius: 5px;
     cursor: pointer;
 }
@@ -39,4 +62,23 @@ body {
     background-color: green;
     color: white;
     font-weight: bold;
+}
+/* Responsividad */
+@media (max-width: 768px) {
+    /* Ajustar el contenedor de tickets en pantallas pequeñas */
+    .grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+
+    /* Resumen de compra ocupa todo el ancho */
+    #resumen-compra {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    /* Botones de paginación */
+    .pagination button {
+        width: auto;
+        font-size: 14px;
+    }
 }

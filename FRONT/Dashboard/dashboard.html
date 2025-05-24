@@ -12,7 +12,7 @@
 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="dashborad.css">
 
 
     <!-- Íconos -->
@@ -20,11 +20,25 @@
 </head>
 
 <body>
-
-    <!-- Navbar -->
-    <!-- Navbar -->
-    <nav class="navbar navbar-dark bg-primary px-3 d-flex justify-content-between">
+     <!-- Barra superior (solo para móviles) -->
+     <nav class="navbar navbar-dark bg-primary px-3 d-flex justify-content-between d-md-none">
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle d-flex align-items-center" type="button" id="usuarioDropdown"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="material-symbols-outlined me-1">account_circle</span>
+                <span id="usernameDisplay">Usuario</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="usuarioDropdown">
+                <li><a class="dropdown-item" href="../Historial/historial.html">Historial</a></li>
+                <li><a class="dropdown-item" href="#" id="cerrarSesion">Cerrar sesión</a></li>
+            </ul>
+        </div>
         <a class="navbar-brand" href="#">Chapa tu Fierro</a>
+    </nav>
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <!-- <nav class="navbar navbar-dark  px-3 d-flex justify-content-between navbar1">
+        <a class="navbar-brand" href="#">meteleconfe</a>
         <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle d-flex align-items-center" type="button" id="usuarioDropdown"
                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -38,52 +52,97 @@
         </div>
     </nav>
 
+    <nav class="navbar  bg-primary px-3 d-flex justify-content-between navbar2">
 
+
+        <button class="btn btn-primary dropdown-toggle d-flex align-items-center" type="button" id="usuarioDropdown"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="material-symbols-outlined me-1">account_circle</span>
+            <span id="usernameDisplay">Historial</span>
+        </button>
+        <button class="btn btn-primary dropdown-toggle d-flex align-items-center" type="button" id="usuarioDropdown"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="material-symbols-outlined me-1">account_circle</span>
+            <span id="usernameDisplay">Historial</span>
+        </button>
+        <button class="btn btn-primary dropdown-toggle d-flex align-items-center" type="button" id="usuarioDropdown"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="material-symbols-outlined me-1">account_circle</span>
+            <span id="usernameDisplay">Hisotorial</span>
+        </button>
+
+    </nav> -->
+    <!-- Menú lateral -->
+    <div class="d-flex">
+        <nav id="sidebarMenu" class="sidebar d-none d-md-block">
+            <div class="position-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="user-barra-lateral" href="#">
+                            <span id="usernameDisplay">Usuario</span>
+                        </a>
+                    </li>
+                    <li class="nav-item items-barra-lateral">
+                        <a class="nav-link" href="../Historial/historial.html">
+                            <span class="material-symbols-outlined">history</span>
+                            Historial
+                        </a>
+                    </li>
+                    <li class="nav-item items-barra-lateral">
+                        <a class="nav-link" href="#">
+                            <span class="material-symbols-outlined">settings</span>
+                            Como comprar tickets
+                        </a>
+                    </li>
+                    <li class="nav-item items-barra-lateral">
+                        <a class="nav-link" href="#" id="cerrarSesion">
+                            <span class="material-symbols-outlined">logout</span>
+                            Cerrar sesión
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     <!-- Contenedor principal -->
     <div class="container mt-4">
         <div class="row justify-content-center">
-            <!-- Tarjeta 1 -->
+
             <div class="col-md-4 col-sm-6 mb-4">
                 <div class="card shadow">
                     <img src="../img/15be9838-ea91-4eaf-8e3a-b09d33d4fbbb.png" class="card-img-top" alt="Sorteo 1">
                     <div class="card-body text-center">
                         <h5 class="card-title">Sorteo F-250</h5>
                         <p class="card-text">Participa en la rifa de esta increíble camioneta.</p>
-                        <a href="../tickets/tickets.html?sorteo=1" class="btn btn-primary">Comprar boleto</a>
+                        <a href="../tickets/tickets.html?sorteo=1" class="btn btn-dashboard-properties">Comprar boleto</a>
                     </div>
                 </div>
             </div>
-
-            <!-- Tarjeta 2 -->
             <div class="col-md-4 col-sm-6 mb-4">
                 <div class="card shadow">
                     <img src="../img/b4b27f23-1203-41e6-bd6a-c3d1eeb55523.png" class="card-img-top" alt="Sorteo 2">
                     <div class="card-body text-center">
                         <h5 class="card-title">Sorteo GTO 1965</h5>
                         <p class="card-text">Consigue un boleto para ganar este clásico.</p>
-                        <a href="../tickets/tickets.html?sorteo=2" class="btn btn-primary">Comprar boleto</a>
+                        <a href="../tickets/tickets.html?sorteo=2" class="btn btn-dashboard-properties">Comprar boleto</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Tarjeta 3 -->
+
             <div class="col-md-4 col-sm-6 mb-4">
                 <div class="card shadow">
                     <img src="../img/8dc6a8ea-e604-4dd2-bce0-eb0661399949.png" class="card-img-top" alt="Sorteo 3">
                     <div class="card-body text-center">
                         <h5 class="card-title">Sorteo RAM 2024</h5>
                         <p class="card-text">Participa en la rifa de esta poderosa RAM 1000.</p>
-                        <a href="../tickets/tickets.html?sorteo=3" class="btn btn-primary">Comprar boleto</a>
+                        <a href="../tickets/tickets.html?sorteo=3" class="btn btn-dashboard-properties">Comprar boleto</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="text-center py-3 bg-dark text-white">
-        <p>© 2025 Sorteos VIP - Todos los derechos reservados</p>
-    </footer>
+    </div>
 
     <script src="dashboard.js"></script>
     <!-- Bootstrap JS Bundle (para dropdowns) -->

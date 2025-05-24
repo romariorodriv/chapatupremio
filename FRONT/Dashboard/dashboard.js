@@ -36,3 +36,14 @@ new Chart(ctx2, {
     ]
   }
 });
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleSidebar = document.getElementById("toggleSidebar");
+  const sidebar = document.getElementById("sidebarMenu");
+
+  toggleSidebar.addEventListener("click", () => {
+      sidebar.classList.toggle("d-block");
+  });
+});
