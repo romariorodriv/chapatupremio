@@ -24,9 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Llama a cargar sorteos
   cargarSorteos();
 });
-
-
-
 async function cargarSorteos() {
   try {
     const response = await fetch('https://api.meteleconfe.com/api/sorteos');
@@ -39,7 +36,7 @@ async function cargarSorteos() {
       div.className = 'col-md-4 col-sm-6 mb-4';
       div.innerHTML = `
         <div class="card shadow">
-          <img src="${sorteo.imagen_url || '../img/default.png'}" class="card-img-top img-sorteo-fija" alt="${sorteo.nombre}">
+          <img src="${sorteo.imagen || '../img/default.png'}" class="card-img-top" alt="${sorteo.nombre}">
           <div class="card-body text-center">
             <h5 class="card-title">${sorteo.nombre}</h5>
             <p class="card-text">${sorteo.descripcion || ''}</p>
@@ -54,10 +51,15 @@ async function cargarSorteos() {
   }
 }
 
-// Detecta si el usuario vuelve con el botón "atrás" o "adelante" y limpia la sesión
-window.addEventListener('pageshow', function(event) {
-  if (event.persisted || !localStorage.getItem('username')) {
-    localStorage.clear();
-    window.location.replace("../Home/index.html");
-  }
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const sidebar = document.getElementById("sidebarMenu");
+
+
 });
+
+// Y llamarla cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', cargarSorteos);
+

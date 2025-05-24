@@ -15,7 +15,7 @@ const JWT_SECRET = process.env.JWT_SECRET || 'Qw3rty!2024$ChapaTuPremio#SecretKe
 
 // Ruta para registrar un nuevo usuario
 router.post('/register', async (req, res) => {
-    const { username, email, password } = req.body; // Obtiene los datos del cuerpo de la solicitud
+    const { username, email, password , role} = req.body; // Obtiene los datos del cuerpo de la solicitud
     try {
         // Encripta la contraseña del usuario
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -48,7 +48,7 @@ router.post('/login', async (req, res) => {
 
         // Genera el token JWT
         const token = jwt.sign(
-            { id: user.id, username: user.username, email: user.email },
+            { id: user.id, username: user.username, email: user.email , role: user.role},
             JWT_SECRET,
             { expiresIn: '2h' }
         );

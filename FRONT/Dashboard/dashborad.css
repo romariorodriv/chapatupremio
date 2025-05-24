@@ -11,23 +11,6 @@ body {
   font-family: Arial, sans-serif;
   background-color:var(--primary-blue) !important;
 }
-/* Agrega esto a tu style.css */
-.img-sorteo-fija {
-  width: 100%;
-  max-width: 250px;      /* Ajusta según tu diseño */
-  height: auto;
-  object-fit: contain;   /* Muestra toda la imagen sin recortar */
-  display: block;
-  margin: 0 auto;
-  background: #fff;      /* Opcional: fondo blanco para PNGs */
-  aspect-ratio: 1/1;     /* Opcional: fuerza cuadrado, quítalo si no quieres esto */
-}
-.card {
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-}
 /* Navbar */
 .navbar {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
