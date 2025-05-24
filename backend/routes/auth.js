@@ -10,6 +10,9 @@ const pool = require('../config/db');
 // Crea un nuevo enrutador de Express
 const router = express.Router();
 
+const jwt = require('jsonwebtoken');
+const JWT_SECRET = process.env.JWT_SECRET || 'Qw3rty!2024$ChapaTuPremio#SecretKey@JWT';
+
 // Ruta para registrar un nuevo usuario
 router.post('/register', async (req, res) => {
     const { username, email, password } = req.body; // Obtiene los datos del cuerpo de la solicitud
@@ -28,35 +31,38 @@ router.post('/register', async (req, res) => {
 
 // Ruta para iniciar sesión
 router.post('/login', async (req, res) => {
-    const { email, password } = req.body; // Obtiene los datos del cuerpo de la solicitud
+    const { email, password } = req.body;
 
     try {
-        // Busca al usuario en la base de datos por su email
         const result = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
         if (result.rows.length === 0) {
-            // Si no se encuentra el usuario, responde con un mensaje de error
             return res.status(401).json({ message: 'Usuario no encontrado' });
         }
 
-        const user = result.rows[0]; // Obtiene el usuario encontrado
-        
-        // Compara la contraseña proporcionada con la almacenada en la base de datos
+        const user = result.rows[0];
         const isMatch = await bcrypt.compare(password, user.password);
 
         if (!isMatch) {
-            // Si las contraseñas no coinciden, responde con un mensaje de error
             return res.status(401).json({ message: 'Contraseña incorrecta' });
         }
 
-        // Si las contraseñas coinciden, responde con un mensaje de éxito y una URL de redirección
+        // Genera el token JWT
+        const token = jwt.sign(
+            { id: user.id, username: user.username, email: user.email },
+            JWT_SECRET,
+            { expiresIn: '2h' }
+        );
+        console.log('TOKEN:', token); // <-- Agrega esto
+
+        // Solo esta respuesta, incluyendo el token
         res.status(200).json({
-            message: 'Login exitoso', 
-            redirectUrl: '../Dashboard/dashboard.html', 
+            message: 'Login exitoso',
+            token,
+            redirectUrl: '../Dashboard/dashboard.html',
             username: user.username,
-            usuario_id: user.id // 👈 esto es lo que te faltaba
-         });
+            usuario_id: user.id
+        });
     } catch (error) {
-        // Maneja errores y responde con un mensaje de error
         res.status(500).json({ message: 'Error en el login', error });
     }
 });

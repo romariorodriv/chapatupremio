@@ -2,10 +2,29 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../config/db'); // Asegúrate de tener tu conexión
 
+const jwt = require('jsonwebtoken');
+const JWT_SECRET = process.env.JWT_SECRET || 'Qw3rty!2024$ChapaTuPremio#SecretKey@JWT';
+
+// Middleware para autenticar el token JWT
+function authenticateToken(req, res, next) {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+    if (!token) return res.status(401).json({ message: 'Token requerido' });
+
+    jwt.verify(token, JWT_SECRET, (err, user) => {
+        if (err) return res.status(403).json({ message: 'Token inválido' });
+        req.user = user;
+        next();
+    });
+}
+
+
 // Comprar boletos
-router.post('/', async (req, res) => {
-    const { usuario_id, sorteo_id, boletos } = req.body; // boletos = [101, 102, 103]
-    
+router.post('/', authenticateToken, async (req, res) => {
+    const { sorteo_id, boletos } = req.body; // boletos = [101, 102, 103]
+    const usuario_id = req.user.id; 
+
+
     if (!usuario_id || !sorteo_id || !boletos || boletos.length === 0) {
         return res.status(400).json({ message: 'Datos incompletos para la compra.' });
     }

@@ -88,9 +88,21 @@ document.getElementById("confirmarCompra").addEventListener("click", async () =>
         alert("Debes seleccionar al menos un boleto y estar logueado.");
         return;
     }
+    // Construir el mensaje para WhatsApp
+    const numeroWhatsApp = "51945253117"; // Reemplaza con el número de WhatsApp del equipo
+    const boletos = boletosSeleccionados.join(", ");
+    const total = boletosSeleccionados.length * precioPorBoleto;
+
+    const mensaje = `Hola equipo de metele confe, quiero comprar los siguientes tickets: ${boletos}. El total es S/${total}.00. Adjunto mi depósito a su cuenta para separar los tickets.`;
+
+    // Codificar el mensaje para la URL
+    const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+
+    // Redirigir a WhatsApp
+    window.location.href = urlWhatsApp;
 
     try {
-        const response = await fetch("http://localhost:5000/api/compras", {
+        const response = await fetch("https://api.meteleconfe.com/api/compras", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
